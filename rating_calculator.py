@@ -11,9 +11,11 @@ def exampleCase():
 
     P1_R = input("P1 rating:")
     P1_D = input("P1 dev: ")
+    P1_V = input("P1 vola: ")
 
     P2_R = input("P2 rating:")
     P2_D = input("P2 dev:")
+    P2_V = input("P2 vola: ")
 
     winner = input("Who won? P1 or P2? :: ")
 
@@ -24,11 +26,9 @@ def exampleCase():
         a = 0;
         b = 1;
 
-    
-    P1.setRating(P1_R)
-    P1.setRd(P1_D)
-    P2.setRating(P2_R)
-    P2.setRd(P2_D)
+    P1 = glicko2.Player(P1_R, P1_D, P1_V)
+    P2 = glicko2.Player(P2_R, P2_D, P1_V)
+
 
     P1c = P1
 
@@ -45,6 +45,7 @@ def exampleCase():
     
     print("P1 New Rating: " + str(P1.rating))
     print("P1 New Dev: " + str(P1.rd))
+    print("P1 New Vol: " + str(P1.vol))
 
 
     P2.update_player([x for x in [P1c.rating]],
@@ -52,6 +53,7 @@ def exampleCase():
 
     print("P2 New Rating: " + str(P2.rating))
     print("P2 New Dev: " + str(P2.rd))
+    print("P2 New Vol: " + str(P2.vol))
 
 
 
